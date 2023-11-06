@@ -1,0 +1,11 @@
+[{
+  "_id": {
+    "$oid": "65483e010d7d10203a4ae2a9"
+  },
+  "marca": "Corola",
+  "modelo": "hatch",
+  "ano": "2023",
+  "preco": "50000",
+  "categoria": "passeio",
+  "fabricante": "toyota"
+}]
