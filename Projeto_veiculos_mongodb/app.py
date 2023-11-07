@@ -60,7 +60,7 @@ def edit(id):
 @app.route('/delete/<string:id>', methods=['GET'])
 def delete(id):
     collection_carros.delete_one({"_id": ObjectId(id)})
-    return redirect(url_for('index'))
+    return redirect(url_for('read'))
 
 
 @app.route('/search_by_id/<string:id>', methods=['GET'])

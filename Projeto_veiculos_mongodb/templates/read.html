@@ -2,27 +2,50 @@
 <html>
 <head>
     <title>Lista de Carros</title>
-    <!-- Adicione o link para o arquivo CSS do Bootstrap -->
+    <!-- Include the Bootstrap CSS file -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="container mt-5">
         <h1 class="mb-4">Lista de Carros</h1>
-        <ul class="list-group">
-            {% for carro in carros %}
-                <li class="list-group-item">
-                    <h5 class="mb-0">{{ carro.marca }}</h5>
-                    <p class="mb-0">Modelo: {{ carro.modelo }}</p>
-                    <p class="mb-0">Ano: {{ carro.ano }}</p>
-                    <p class="mb-0">Preço: {{ carro.preco }}</p>
-                    <p class="mb-0">Categoria: {{ carro.categoria }}</p>
-                    <p class="mb-0">Fabricante: {{ carro.fabricante }}</p>
-                    <a class="btn btn-primary btn-sm" href="{{ url_for('edit', id=carro._id) }}">Editar</a>
-                    <a class="btn btn-danger btn-sm" href="{{ url_for('delete', id=carro._id) }}">Excluir</a>
-                </li>
-            {% endfor %}
-        </ul>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Ano</th>
+                    <th>Preço</th>
+                    <th>Categoria</th>
+                    <th>Fabricante</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for carro in carros %}
+                    <tr>
+                        <td>{{ carro.marca }}</td>
+                        <td>{{ carro.modelo }}</td>
+                        <td>{{ carro.ano }}</td>
+                        <td>{{ carro.preco }}</td>
+                        <td>{{ carro.categoria }}</td>
+                        <td>{{ carro.fabricante }}</td>
+                        <td>
+                            <a class="btn btn-primary btn-sm" href="{{ url_for('edit', id=carro._id) }}">Editar</a>
+                            <a class="btn btn-danger btn-sm" href="javascript:void(0);" onclick="confirmDelete('{{ url_for('delete', id=carro._id) }}')">Excluir</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
         <a class="btn btn-success mt-3" href="{{ url_for('create') }}">Cadastrar Novo Carro</a>
     </div>
+
+    <script>
+        function confirmDelete(deleteUrl) {
+            if (confirm('Tem certeza de que deseja excluir este item?')) {
+                window.location.href = deleteUrl;
+            }
+        }
+    </script>
 </body>
 </html>
