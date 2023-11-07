@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Carro</title>
+    <!-- Adicione o link para o arquivo CSS do Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Editar Carro</h1>
+        <form method="POST" action="{{ url_for('edit', id=carro._id) }}">
+            <div class="form-group">
+                <label>Marca:</label>
+                <input type="text" class="form-control" name="marca" value="{{ carro.marca }}">
+            </div>
+            <div class="form-group">
+                <label>Modelo:</label>
+                <input type="text" class="form-control" name="modelo" value="{{ carro.modelo }}">
+            </div>
+            <div class="form-group">
+                <label>Ano:</label>
+                <input type="text" class="form-control" name="ano" value="{{ carro.ano }}">
+            </div>
+            <div class="form-group">
+                <label>Preço:</label>
+                <input type="text" class="form-control" name="preco" value="{{ carro.preco }}">
+            </div>
+            <div class="form-group">
+                <label>Categoria:</label>
+                <input type="text" class="form-control" name="categoria" value="{{ carro.categoria }}">
+            </div>
+            <div class="form-group">
+                <label>Fabricante:</label>
+                <input type="text" class="form-control" name="fabricante" value="{{ carro.fabricante }}">
+</div>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+    </div>
+</body>
+</html>
