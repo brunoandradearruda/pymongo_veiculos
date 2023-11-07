@@ -13,12 +13,34 @@
                 {{ error }}
             </div>
         {% else %}
-            <p><strong>Marca:</strong> {{ carro.marca }}</p>
-            <p><strong>Modelo:</strong> {{ carro.modelo }}</p>
-            <p><strong>Ano:</strong> {{ carro.ano }}</p>
-            <p><strong>Preço:</strong> {{ carro.preco }}</p>
-            <p><strong>Categoria:</strong> {{ carro.categoria }}</p>
-            <p><strong>Fabricante:</strong> {{ carro.fabricante }}</p>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <th scope="row">Marca:</th>
+                        <td>{{ carro.marca }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Modelo:</th>
+                        <td>{{ carro.modelo }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Ano:</th>
+                        <td>{{ carro.ano }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Preço:</th>
+                        <td>{{ carro.preco }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Categoria:</th>
+                        <td>{{ carro.categoria }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Fabricante:</th>
+                        <td>{{ carro.fabricante }}</td>
+                    </tr>
+                </tbody>
+            </table>
         {% endif %}
         <a href="{{ url_for('search') }}" class="btn btn-primary">Nova Busca</a>
     </div>
