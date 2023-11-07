@@ -63,14 +63,19 @@ def delete(id):
     return redirect(url_for('read'))
 
 
-@app.route('/search_by_id/<string:id>', methods=['GET'])
-def search_by_id(id):
-    carro = collection_carros.find_one({"_id": ObjectId(id)})
+@app.route('/search', methods=['GET', 'POST'])
+def search():
+    if request.method == 'POST':
+        car_id = request.form.get('car_id')
+        carro = collection_carros.find_one({"_id": ObjectId(car_id)})
 
-    if carro:
-        return render_template("search_by_id.html", carro=carro)  # Página de detalhes do carro
-    else:
-        return render_template("search_by_id.html", error="Carro não encontrado.")  # Exibir mensagem de erro
+        if carro:
+            return render_template("search_result.html", carro=carro)
+        else:
+            return render_template("search_result.html", error="Carro não encontrado.")
+
+    return render_template("search.html")
+
 
 
 if __name__ == "__main__":

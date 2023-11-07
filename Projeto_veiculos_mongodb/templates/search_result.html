@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resultado da Busca de Veículo</title>
+    <!-- Inclua o arquivo CSS do Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Resultado da Busca de Veículo</h1>
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% else %}
+            <p><strong>Marca:</strong> {{ carro.marca }}</p>
+            <p><strong>Modelo:</strong> {{ carro.modelo }}</p>
+            <p><strong>Ano:</strong> {{ carro.ano }}</p>
+            <p><strong>Preço:</strong> {{ carro.preco }}</p>
+            <p><strong>Categoria:</strong> {{ carro.categoria }}</p>
+            <p><strong>Fabricante:</strong> {{ carro.fabricante }}</p>
+        {% endif %}
+        <a href="{{ url_for('search') }}" class="btn btn-primary">Nova Busca</a>
+    </div>
+</body>
+</html>
